@@ -1,0 +1,38 @@
+spring:
+  config:
+    activate:
+      on-profile: default
+  application:
+    name: device-api
+  server:
+    port: 8080
+  data:
+    mongodb:
+      #uri: mongodb://mongo_test:MyPassword1!@testing.mongodb:27017/mongo_test?authMechanism=PLAIN&authSource=$external&ssl=true&retryWrites=false&loadBalanced=true
+      uri: mongodb://mongo_test:MyPassword1!@my-mongodb-0.my-mongodb-svc.mongodb.svc.cluster.local:27017/mongo_test?authMechanism=SCRAM-SHA-256&ssl=true&retryWrites=false
+  datasource:
+    url: jdbc:oracle:thin:@FREEPDB1?TNS_ADMIN=/Users/erichsieh/git/OracleRestDataServices/jdk17/Wallet_ocivaultdemo23c
+    username:
+    password:
+  jpa:
+    database: oracle
+    hibernate:
+      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      show-sql: true
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.Oracle12cDialect
+logging:
+  level:
+    com:
+      vs:
+        device: DEBUG
+oci:
+  tenant:
+    region: ap-singapore-1
+    adb-username-ocid: ocid1.vaultsecret.oc1.ap-singapore-1.amaaaaaahxv2vbyahesk6tl5kvyigzjvm5uog3mnvpxsyxeuo7g2e64shtya
+    adb-password-ocid: ocid1.vaultsecret.oc1.ap-singapore-1.amaaaaaahxv2vbyafxecrjq5bykjubid57awz4inn35xbwmozdtoz4x5janq
+    stream-ocid:
+    message-endpoint:
+    topic-ocid:

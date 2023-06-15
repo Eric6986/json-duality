@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oraclesqlplus
+  namespace: oracle23c
+  labels:
+    app: oraclesqlplus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: oraclesqlplus
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: oraclesqlplus
+    spec:
+      imagePullSecrets:
+        - name: docker-registry
+      containers:
+      - image: sin.ocir.io/hktwlab/oraclesqlplus:latest
+        name: oraclesqlplus
+        command:
+          - /bin/sh
+          - "-c"
+          - "sleep 60m"
