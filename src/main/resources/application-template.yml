@@ -38,3 +38,31 @@ oci:
     stream-ocid: 
     message-endpoint: 
     topic-ocid:
+
+
+
+spring:
+  config:
+    activate:
+      on-profile: {$APP_NAMESPACE}
+  application:
+    name: {$APP_PREFIX}
+  server:
+    port: 8080
+  management:
+    endpoint:
+      web:
+        exposure:
+          include: "health"
+      enabled-by-default: true
+  mongodb:
+    data:
+      ordsdb:
+        uri: {$MONGODB_CONNECTION_DB1}
+      testdb:
+        uri: {$MONGODB_CONNECTION_DB2}
+logging:
+  level:
+    com:
+      vs:
+        device: DEBUG
